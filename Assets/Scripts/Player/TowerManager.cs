@@ -107,6 +107,9 @@ public class TowerManager : MonoBehaviour
         projectile.AddComponent<CircleCollider2D>();
         projectile.GetComponent<SpriteRenderer>().sortingOrder = 100;
         projectile.GetComponent<CircleCollider2D>().isTrigger = true;
+        projectile.AddComponent<ProjectileManager>();
+        projectile.GetComponent<ProjectileManager>().self = self.projectile;
+        projectile.GetComponent<ProjectileManager>().target = currentTarget;
 
         return projectile;
     }
